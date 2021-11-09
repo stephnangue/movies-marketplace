@@ -8,6 +8,7 @@ RUN npm i && npm i -g @angular/cli
 COPY . .
 RUN ng build -c $ENVIRONMENT
 
+
 FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/dist /usr/share/nginx/html
