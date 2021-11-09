@@ -1,4 +1,4 @@
-
+def imageName = 'stephnangue/movies-loader'
 
 node('workers'){
     stage('Checkout'){
