@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
     this.getMovies();
   }
 
-  private getMovies(){
+  private getMovies() {
     this.apiService.getMovies().subscribe(data => {
       this.movies = data;
     }, err => {
@@ -25,13 +25,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  public searchMovie(){
+  public searchMovie() {
     this.apiService.getMovie(this.keyword).subscribe(data => {
       this.movies = [];
-      if(Array.isArray(data))
+      if(Array.isArray(data)) {
         this.movies = data;
-      else
+      }
+      else {
         this.movies.push(data);
+      }
     }, err => {
       this.movies = [];
     })

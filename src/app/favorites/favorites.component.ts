@@ -13,7 +13,7 @@ export class FavoritesComponent implements OnInit {
     this.getMovies();
   }
 
-  private getMovies(){
+  private getMovies() {
     this.apiService.getFavorites().subscribe(data => {
       this.movies = data;
     }, err => {

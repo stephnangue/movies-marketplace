@@ -16,13 +16,13 @@ export class MovieComponent implements OnInit {
   constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute) {
     this.apiService.getMovie(this.activatedRoute.snapshot.params.id).subscribe(data => {
        data.actors.shift();
-      this.movie = data;
+    this.movie = data;
     }, err => {
       this.movie = {};
     })
   }
 
-  public addToFav(){
+  public addToFav() {
     this.apiService.addToFavorites(this.movie).subscribe(data => {
       $.notify({
         icon: 'la la-bell',
@@ -31,8 +31,8 @@ export class MovieComponent implements OnInit {
       }, {
           type: 'success',
           placement: {
-            from: "bottom",
-            align: "right"
+            from: 'bottom',
+            align: 'right'
           },
           time: 800000,
         });
@@ -44,8 +44,8 @@ export class MovieComponent implements OnInit {
       }, {
           type: 'danger',
           placement: {
-            from: "bottom",
-            align: "right"
+            from: 'bottom',
+            align: 'right'
           },
           time: 800000,
         });
