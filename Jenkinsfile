@@ -11,6 +11,7 @@ node('workers'){
         sh "docker run --rm ${imageName}-test npm run lint"
     }
 
+/*
     stage('Unit Tests'){
         sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run test"
         publishHTML (target: [
@@ -23,7 +24,7 @@ node('workers'){
         ])
     }
 
-/*
+
     stage('Static Code Analysis'){ 
         withSonarQubeEnv('sonarqube') {
             sh 'sonar-scanner -Dsonar.projectVersion=$BUILD_NUMBER'
