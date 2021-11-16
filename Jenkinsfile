@@ -13,6 +13,8 @@ node('workers'){
         sh "docker run --rm ${imageName}-test npm run lint"
     }
 
+
+
 /*
     stage('Unit Tests'){
         sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run test"
