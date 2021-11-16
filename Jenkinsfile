@@ -14,7 +14,6 @@ node('workers'){
     }
 
 
-
     stage('Unit Tests'){
         sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run test"
         publishHTML (target: [
