@@ -13,6 +13,8 @@ node('workers'){
         sh "docker run --rm ${imageName}-test npm run lint"
     }
 
+
+
 /*
     stage('Unit Tests'){
         sh "docker run --rm -v $PWD/coverage:/app/coverage ${imageName}-test npm run test"
@@ -55,6 +57,12 @@ node('workers'){
                 docker.image(imageName).push('develop')
             }
         }    
+    }
+
+    stage('Deploy'){
+        if(env.BRANCH_NAME == 'develop'){
+            build job: "watchlist-deployment/${env.BRANCH_NAME}"
+        }
     }
 
 }
