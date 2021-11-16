@@ -57,6 +57,12 @@ node('workers'){
         }    
     }
 
+    stage('Deploy'){
+        if(env.BRANCH_NAME == 'develop'){
+            build job: "watchlist-deployment/${env.BRANCH_NAME}"
+        }
+    }
+
 }
 
 def commitID() {
